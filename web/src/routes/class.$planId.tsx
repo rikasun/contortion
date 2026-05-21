@@ -8,8 +8,7 @@ import { useSpeech } from "../hooks/useSpeech";
 import { useChime } from "../hooks/useChime";
 import { useRecordSession, isSessionRecordable } from "../hooks/useSessionLog";
 import { useSettings } from "../hooks/useSettings";
-import { Ring } from "../components/Ring";
-import { Timer } from "../components/Timer";
+import { CompactTimer } from "../components/CompactTimer";
 import { ControlBar } from "../components/ControlBar";
 import { CueDisplay } from "../components/CueDisplay";
 import { FocusCard } from "../components/FocusCard";
@@ -201,7 +200,7 @@ function ClassScreen() {
             </Button>
             <Button
               size="3"
-              variant="ghost"
+              variant="surface"
               onClick={() => navigate({ to: "/" })}
             >
               Back
@@ -221,11 +220,22 @@ function ClassScreen() {
   const step = session.step;
   const isRunning = session.status === "running";
 
+  const progress = session.phaseSeconds
+    ? session.phaseElapsedSec / session.phaseSeconds
+    : 0;
+
   return (
-    <div className="max-w-[1280px] mx-auto p-3 h-screen flex flex-col">
-      <header className="flex items-center justify-between mb-3 gap-2.5 flex-wrap">
-        <h1 className="text-lg font-bold m-0">Flex Class</h1>
+    <div className="max-w-[1280px] mx-auto p-3 min-h-screen flex flex-col">
+      <header className="flex items-center justify-between mb-2 gap-2">
+        <h1 className="text-base font-bold m-0">Flex Class</h1>
         <div className="flex items-center gap-2">
+          <Button
+            size="1"
+            variant="ghost"
+            onClick={() => session.endNow()}
+          >
+            End
+          </Button>
           <Button
             size="1"
             variant="surface"
@@ -237,113 +247,79 @@ function ClassScreen() {
         </div>
       </header>
 
-      <div
-        className="grid gap-3.5 flex-1 min-h-0"
-        style={{ gridTemplateColumns: "minmax(0, 1fr)" }}
-      >
-        <div className="md:!grid md:grid-cols-[minmax(0,1fr)_320px] md:gap-3.5 grid grid-cols-1 gap-3.5 flex-1 min-h-0">
-          <section
-            className="rounded-2xl px-4 py-3.5 flex flex-col min-h-0 overflow-auto"
+      <div className="md:grid md:grid-cols-[minmax(0,1fr)_320px] md:gap-3.5 flex-1 min-h-0">
+        <section
+          className="rounded-2xl px-4 py-3 flex flex-col"
+          style={{
+            background: "var(--card)",
+            border: "1px solid var(--rule)",
+          }}
+        >
+          <div
+            className="font-bold uppercase tracking-[1px]"
+            style={{ fontSize: 11, color: "var(--accent)" }}
+          >
+            {step?.ex.section} · Ex {step?.ex.id}/{plan.exercises.length}
+          </div>
+          <h2
+            className="m-0 mt-0.5 font-bold leading-[1.15]"
+            style={{ fontSize: "clamp(20px, 4.5vw, 28px)" }}
+          >
+            {step?.ex.name}
+          </h2>
+          <div
+            className="mt-0.5"
             style={{
-              background: "var(--card)",
-              border: "1px solid var(--rule)",
+              color: "var(--ink-soft)",
+              fontSize: "clamp(13px, 1.6vw, 15px)",
             }}
           >
-            <div
-              className="flex justify-between items-center"
-              style={{ color: "var(--ink-soft)", fontSize: 13 }}
-            >
-              <span>
-                <span
-                  className="font-bold uppercase tracking-[1px]"
-                  style={{ fontSize: 11, color: "var(--accent)" }}
-                >
-                  {step?.ex.section}
-                </span>{" "}
-                · Ex {step?.ex.id}/{plan.exercises.length}
-              </span>
-              <Button
-                size="1"
-                variant="ghost"
-                onClick={() => session.endNow()}
-              >
-                End class
-              </Button>
+            {step?.phase.label}
+          </div>
+
+          {step?.ex.photo ? (
+            <div className="mt-3">
+              <PhotoCard src={step.ex.photo} alt={step.ex.name} />
             </div>
+          ) : null}
 
-            <h2
-              className="m-0 mt-1 mb-0.5 font-bold leading-[1.1]"
-              style={{ fontSize: "clamp(22px, 3.6vw, 30px)" }}
-            >
-              {step?.ex.name}
-            </h2>
-            <div
-              style={{
-                color: "var(--ink-soft)",
-                fontSize: "clamp(13px, 1.6vw, 15px)",
-              }}
-            >
-              {step?.phase.label}
-            </div>
-
-            <div
-              className={
-                step?.ex.photo
-                  ? "grid gap-3 my-2 grid-cols-1 md:grid-cols-[1fr_1fr] items-center"
-                  : "flex justify-center py-1"
-              }
-            >
-              <Ring
-                progress={
-                  session.phaseSeconds
-                    ? session.phaseElapsedSec / session.phaseSeconds
-                    : 0
-                }
-              >
-                <Timer
-                  remainingSec={session.phaseRemainingSec}
-                  subLabel={step?.phase.label}
-                />
-              </Ring>
-              {step?.ex.photo ? (
-                <PhotoCard
-                  src={step.ex.photo}
-                  alt={step.ex.name}
-                />
-              ) : null}
-            </div>
-
-            <CueDisplay text={cueText} />
-
-            <ControlBar
-              isRunning={isRunning}
-              onBack={session.back}
-              onNext={session.next}
-              onPlayPause={() =>
-                isRunning ? session.pause() : session.resume()
-              }
+          <div className="mt-3">
+            <CompactTimer
+              remainingSec={session.phaseRemainingSec}
+              progress={progress}
             />
+          </div>
 
-            {step ? (
-              <FocusCard
-                instruction={step.ex.instruction}
-                detail={step.ex.detail}
-                focus={step.ex.focus}
-              />
-            ) : null}
-          </section>
+          <CueDisplay text={cueText} />
 
-          <Sidebar
-            sequence={session.sequence}
-            cursor={session.cursor}
-            totalSec={session.totalSec}
-            sessionElapsedSec={session.sessionElapsedSec}
-            sessionRemainingSec={session.sessionRemainingSec}
-            onJump={session.jumpTo}
-            open={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+          <ControlBar
+            isRunning={isRunning}
+            onBack={session.back}
+            onNext={session.next}
+            onPlayPause={() =>
+              isRunning ? session.pause() : session.resume()
+            }
           />
-        </div>
+
+          {step ? (
+            <FocusCard
+              instruction={step.ex.instruction}
+              detail={step.ex.detail}
+              focus={step.ex.focus}
+            />
+          ) : null}
+        </section>
+
+        <Sidebar
+          sequence={session.sequence}
+          cursor={session.cursor}
+          totalSec={session.totalSec}
+          sessionElapsedSec={session.sessionElapsedSec}
+          sessionRemainingSec={session.sessionRemainingSec}
+          onJump={session.jumpTo}
+          open={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
       </div>
     </div>
   );

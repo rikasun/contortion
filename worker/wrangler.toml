@@ -7,7 +7,7 @@ compatibility_date = "2025-05-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "contortion"
-database_id = "REPLACE_WITH_DATABASE_ID_FROM_WRANGLER_OUTPUT"
+database_id = "6141ecbb-a78c-49ff-9cf8-1cbb6a3cbe9c"
 
 [vars]
 ALLOWED_ORIGINS = "https://contortion.rikasun.com,http://localhost:5173"

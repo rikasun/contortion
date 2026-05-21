@@ -2,7 +2,7 @@
 
 A personal flexibility training timer with voice cues, illustrated guides, and password-gated session history. Built for one student, deployed to a single browser tab on a yoga mat.
 
-**Live:** _(TBD — pending custom-domain DNS)_
+**Live:** [contortion.rikasun.com](https://contortion.rikasun.com)
 
 ## What it does
 
