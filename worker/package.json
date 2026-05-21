@@ -1,0 +1,17 @@
+{
+  "name": "flex-class-worker",
+  "description": "Cloudflare Worker + D1 backend for the Flex Class app. Stores finished training sessions; reads are password-gated.",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute contortion --remote --file=./schema.sql",
+    "db:init:local": "wrangler d1 execute contortion --local --file=./schema.sql"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250101.0",
+    "typescript": "^5.5.0",
+    "wrangler": "^3.90.0"
+  }
+}
