@@ -63,6 +63,12 @@ function ClassScreen() {
       }, 4500);
     },
     onPhaseStart: (step) => {
+      // Hard reset cue display + voice from the previous phase so nothing
+      // lingers (Safari's speechSynthesis.cancel can be flaky, and a
+      // previous cue's 4.5s clear timer may not have fired yet).
+      cancel();
+      window.clearTimeout(cueTimerRef.current);
+      setCueText("");
       chime.start();
       // The at=0 cue in each phase already covers the spoken intro.
       // Speaking here in addition would race with the cue and one gets
