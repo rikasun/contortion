@@ -166,6 +166,10 @@ export function useSession({
       accumulatedMsRef.current = 0;
       phaseStartAtRef.current = performance.now();
       lastCueSecRef.current = -1;
+      // Update cursorRef synchronously — tickEngine() runs before React
+      // re-renders, so without this it would read the previous phase's
+      // step and fire the OLD phase's at=0 cue on every phase transition.
+      cursorRef.current = newCursor;
       setPhaseElapsedSec(0);
       setCursor(newCursor);
       setStatus("running");
