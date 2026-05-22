@@ -12,47 +12,79 @@ export const exercises: Exercise[] = [
     "phases": [
       {
         "label": "Left leg — 10x, hold 3s each",
-        "seconds": 40,
+        "seconds": 50,
         "cues": [
           {
             "at": 0,
-            "say": "Left leg. Ten reps. Engage the quad, hold three seconds, then relax."
+            "say": "Left leg. Ten reps. Engage your quad to fully straighten, hold three seconds, then relax. Toes pointed."
           },
           {
-            "at": 12,
+            "at": 14,
             "say": "Back of the knee stays down."
           },
           {
-            "at": 28,
-            "say": "Toes pointed the whole time."
+            "at": 25,
+            "say": "Five down. Halfway."
+          },
+          {
+            "at": 38,
+            "say": "Quads — that's the activation that's been lacking. Three more."
+          },
+          {
+            "at": 45,
+            "say": "Last one."
           }
         ]
       },
       {
         "label": "Right leg — 10x, hold 3s each",
-        "seconds": 40,
+        "seconds": 50,
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg. Ten reps."
+            "say": "Switch. Right leg. Ten reps. Engage the quad."
           },
           {
-            "at": 20,
-            "say": "Stay tall through your spine."
+            "at": 14,
+            "say": "Stay tall through your spine. Toes pointed."
+          },
+          {
+            "at": 25,
+            "say": "Five down. Halfway."
+          },
+          {
+            "at": 38,
+            "say": "Quads engaged on every rep. Three more."
+          },
+          {
+            "at": 45,
+            "say": "Last one."
           }
         ]
       },
       {
         "label": "Both legs together — 10x, hold 3s each",
-        "seconds": 40,
+        "seconds": 50,
         "cues": [
           {
             "at": 0,
-            "say": "Both legs together. Ten reps. Hold three seconds."
+            "say": "Both legs together. Ten reps. Engage both quads, hold three seconds."
           },
           {
-            "at": 20,
-            "say": "Quads on every rep."
+            "at": 14,
+            "say": "Heels stay on the floor. Knees fully straight."
+          },
+          {
+            "at": 25,
+            "say": "Five down. Halfway."
+          },
+          {
+            "at": 38,
+            "say": "Quads on every rep. Three more."
+          },
+          {
+            "at": 45,
+            "say": "Last one."
           }
         ]
       }
@@ -69,65 +101,89 @@ export const exercises: Exercise[] = [
     "phases": [
       {
         "label": "Front kicks — Left (8 pointed, 8 flexed)",
-        "seconds": 35,
+        "seconds": 45,
         "cues": [
           {
             "at": 0,
-            "say": "Front kicks, left. Eight pointed first. Knee straight. Toward your same-side shoulder."
+            "say": "Front kicks, left. Eight pointed first. Knee straight. Kick toward your same-side shoulder."
           },
           {
-            "at": 18,
-            "say": "Now eight flexed."
+            "at": 12,
+            "say": "Four pointed done. Start slow, speed up as it gets easier."
+          },
+          {
+            "at": 22,
+            "say": "Pointed done. Now switch to eight flexed — knee still straight."
+          },
+          {
+            "at": 35,
+            "say": "Four flexed done. Last few."
           }
         ]
       },
       {
         "label": "Front kicks — Right (8 pointed, 8 flexed)",
-        "seconds": 35,
+        "seconds": 45,
         "cues": [
           {
             "at": 0,
-            "say": "Front kicks, right. Eight pointed."
+            "say": "Switch. Front kicks, right. Eight pointed first."
           },
           {
-            "at": 18,
-            "say": "Eight flexed."
+            "at": 12,
+            "say": "Four pointed. Knee straight."
+          },
+          {
+            "at": 22,
+            "say": "Pointed done. Now eight flexed."
+          },
+          {
+            "at": 35,
+            "say": "Four flexed. Last few."
           }
         ]
       },
       {
         "label": "Side kicks — Left (8 pointed, 8 flexed)",
-        "seconds": 40,
+        "seconds": 45,
         "cues": [
           {
             "at": 0,
-            "say": "Side kicks, left. Knees forward, legs actively straight, butt squeezed."
+            "say": "Side kicks, left. Eight pointed first. Knees forward, legs actively straight, butt squeezed."
           },
           {
-            "at": 8,
-            "say": "Externally rotate as you kick. Knee faces your shoulder."
+            "at": 10,
+            "say": "Externally rotate as you kick — knee faces your shoulder. Re-stack the top hip between reps."
           },
           {
             "at": 22,
-            "say": "Switch to flexed. Re-stack the hip between reps."
+            "say": "Pointed done. Now eight flexed."
+          },
+          {
+            "at": 35,
+            "say": "Four flexed. Aim behind the shoulder."
           }
         ]
       },
       {
         "label": "Side kicks — Right (8 pointed, 8 flexed)",
-        "seconds": 40,
+        "seconds": 45,
         "cues": [
           {
             "at": 0,
-            "say": "Side kicks, right."
+            "say": "Switch. Side kicks, right. Eight pointed."
           },
           {
-            "at": 8,
-            "say": "Slow and controlled. Aim behind the shoulder."
+            "at": 12,
+            "say": "Stack the top hip between every rep."
           },
           {
             "at": 22,
-            "say": "Flexed."
+            "say": "Pointed done. Now eight flexed."
+          },
+          {
+            "at": 35,
+            "say": "Last few. Slow and controlled."
           }
         ]
       }
@@ -148,19 +204,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Left leg back. Ten slow lifts. Tuck low abs first."
+            "say": "Left leg back. Ten slow lifts. Tuck low abs first. Very slowly lift."
           },
           {
             "at": 12,
-            "say": "Rotate the same-side hip down to square."
+            "say": "Rotate the same-side hip down to square it. Don't open the hip to go higher — that's the wrong muscle."
           },
           {
-            "at": 28,
-            "say": "Hamstring and underbutt. Not low back."
+            "at": 25,
+            "say": "Five done. Hamstring and underbutt do the lifting, not the low back."
           },
           {
-            "at": 42,
-            "say": "Exaggerate the pelvic tuck at the top and bottom."
+            "at": 38,
+            "say": "Three more. Hips stay back, not forward."
+          },
+          {
+            "at": 45,
+            "say": "Exaggerate the pelvic tuck. Last lift."
           }
         ]
       },
@@ -170,15 +230,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg. Ten slow lifts."
+            "say": "Switch. Right leg. Ten slow lifts. Low abs in first."
           },
           {
-            "at": 18,
-            "say": "Square the hip. Don't open it to go higher."
+            "at": 12,
+            "say": "Square the hip down. Don't open it for a higher leg."
+          },
+          {
+            "at": 25,
+            "say": "Five down. Underbutt is the lifter."
           },
           {
             "at": 38,
-            "say": "Hips stay back."
+            "say": "Three more. Hips back, hamstring engaged."
+          },
+          {
+            "at": 45,
+            "say": "Last lift. Pelvic tuck."
           }
         ]
       }
@@ -199,15 +267,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Left leg on the counter. Stick your butt out and lengthen the spine as you lean forward."
+            "say": "Left leg on the counter. Knee bent ninety degrees, in front of the same-side hip. Stick your butt out, lengthen your spine, lean forward."
           },
           {
             "at": 30,
-            "say": "Breathe. Try to sink a little deeper."
+            "say": "One minute left. Breathe and try to sink a little deeper."
           },
           {
             "at": 60,
-            "say": "Thirty seconds left."
+            "say": "Thirty seconds. Lengthen, don't round."
+          },
+          {
+            "at": 75,
+            "say": "Fifteen seconds."
           }
         ]
       },
@@ -217,15 +289,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg up."
+            "say": "Switch. Right leg up. Stick the butt out and lengthen forward."
           },
           {
             "at": 30,
-            "say": "Lengthen, don't round."
+            "say": "One minute left. Sink a little deeper."
           },
           {
             "at": 60,
-            "say": "Thirty seconds."
+            "say": "Thirty seconds. Lengthen, don't round."
+          },
+          {
+            "at": 75,
+            "say": "Fifteen seconds."
           }
         ]
       }
@@ -246,27 +322,27 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Left leg up. Strap on the ball of the foot. Leg actively straight. Begin: resist."
+            "say": "Left leg up. Strap on the ball of the foot. Quad on, leg actively straight. Pull to a light stretch. Begin cycle one — resist for ten seconds."
           },
           {
             "at": 10,
-            "say": "Release. Pull the leg closer."
+            "say": "Release. Pull the leg closer toward your chest."
           },
           {
             "at": 20,
-            "say": "Resist."
+            "say": "Cycle two. Resist."
           },
           {
             "at": 30,
-            "say": "Release."
+            "say": "Release. Closer."
           },
           {
             "at": 40,
-            "say": "Resist."
+            "say": "Halfway. Two cycles left. Resist."
           },
           {
             "at": 50,
-            "say": "Release."
+            "say": "Release. Even closer."
           },
           {
             "at": 60,
@@ -274,7 +350,7 @@ export const exercises: Exercise[] = [
           },
           {
             "at": 70,
-            "say": "Release. Hold the deepest position."
+            "say": "Release. Hold the deepest position for ten seconds."
           }
         ]
       },
@@ -284,7 +360,7 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg. Resist."
+            "say": "Switch. Right leg. Quad on, actively straight. Begin cycle one — resist."
           },
           {
             "at": 10,
@@ -292,19 +368,19 @@ export const exercises: Exercise[] = [
           },
           {
             "at": 20,
-            "say": "Resist."
+            "say": "Cycle two. Resist."
           },
           {
             "at": 30,
-            "say": "Release."
+            "say": "Release. Closer."
           },
           {
             "at": 40,
-            "say": "Resist."
+            "say": "Halfway. Resist."
           },
           {
             "at": 50,
-            "say": "Release."
+            "say": "Release. Closer."
           },
           {
             "at": 60,
@@ -333,15 +409,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Left leg forward. Hips hip-width. Pelvis tucked — low abs and underbutt."
+            "say": "Lunge left. Position one. Legs hip-width, hips in one line. Pelvis tucked — low abs and underbutt squeezed."
           },
           {
-            "at": 10,
-            "say": "Sink the hips down. Feel the hip flexor stretch."
+            "at": 12,
+            "say": "Sink the hips down. Feel the hip flexor — that's a big limiter for you."
+          },
+          {
+            "at": 30,
+            "say": "Halfway. Pelvis still tucked."
           },
           {
             "at": 45,
-            "say": "Fifteen seconds."
+            "say": "Fifteen seconds. Sink more."
           }
         ]
       },
@@ -351,11 +431,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Hips stay low. Bend the back leg toward your butt, then lower back down. Sink a little deeper each time."
+            "say": "Position two. Hips stay low. Bend the back leg with your hamstring, then lower the foot back down — sink deeper each time. Five to eight bends total."
+          },
+          {
+            "at": 20,
+            "say": "Hips down. Three bends in."
+          },
+          {
+            "at": 40,
+            "say": "Last bend."
           },
           {
             "at": 45,
             "say": "Now grab the back foot. Pull it closer to your butt. Hold fifteen seconds."
+          },
+          {
+            "at": 55,
+            "say": "Five seconds left."
           }
         ]
       },
@@ -365,11 +457,15 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg forward. Pelvis tucked."
+            "say": "Switch. Right leg forward. Position one. Pelvis tucked — low abs and underbutt."
           },
           {
-            "at": 10,
+            "at": 12,
             "say": "Sink. Feel the hip flexor."
+          },
+          {
+            "at": 30,
+            "say": "Halfway. Pelvis stays tucked."
           },
           {
             "at": 45,
@@ -383,11 +479,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Bend the back leg, lower, sink deeper."
+            "say": "Position two. Bend the back leg with your hamstring, lower it back. Sink hips deeper each time."
+          },
+          {
+            "at": 20,
+            "say": "Three bends in. Hips low."
+          },
+          {
+            "at": 40,
+            "say": "Last bend."
           },
           {
             "at": 45,
-            "say": "Grab the back foot. Pull closer."
+            "say": "Now grab the back foot. Pull closer to your butt. Hold fifteen seconds."
+          },
+          {
+            "at": 55,
+            "say": "Five seconds."
           }
         ]
       }
@@ -408,7 +516,7 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Widest straddle. Knees up. Quads fully engaged."
+            "say": "Pancake. Widest straddle, knees pointing up. Quads fully engaged."
           },
           {
             "at": 10,
@@ -419,8 +527,12 @@ export const exercises: Exercise[] = [
             "say": "Keep that activation. Reach forward with your arms."
           },
           {
-            "at": 45,
-            "say": "Fifteen seconds."
+            "at": 35,
+            "say": "Halfway. Quads still on, glutes still squeezed."
+          },
+          {
+            "at": 50,
+            "say": "Ten seconds left."
           }
         ]
       }
@@ -441,15 +553,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Left leg straight to the side. Down to elbows. Slide out, hips slightly back."
+            "say": "Half frog left. Left leg straight to the side, ankle in line with the right knee. Down to elbows."
           },
           {
             "at": 8,
-            "say": "Try the Tuck and Twerk — rotate the pelvis to stick the butt out, then tuck. Super slow."
+            "say": "Slide the leg out, hips slightly back. Front of legs in a line. Quad on, side butt squeezed."
           },
           {
-            "at": 25,
-            "say": "Hold the deepest version."
+            "at": 16,
+            "say": "Try the Tuck and Twerk — pelvis out, then tuck. Super slow, five to ten times."
+          },
+          {
+            "at": 28,
+            "say": "Hold the deepest version. Five seconds."
           }
         ]
       },
@@ -459,15 +575,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg out. Front of legs in a line."
+            "say": "Switch. Right leg out. Ankle in line with the left knee. Front of legs in a line."
           },
           {
-            "at": 8,
-            "say": "Tuck and Twerk. Slow."
+            "at": 10,
+            "say": "Quad engaged, side butt squeezed."
           },
           {
-            "at": 25,
-            "say": "Hold."
+            "at": 16,
+            "say": "Tuck and Twerk. Slow, five to ten times."
+          },
+          {
+            "at": 28,
+            "say": "Hold. Five seconds."
           }
         ]
       }
@@ -492,11 +612,15 @@ export const exercises: Exercise[] = [
           },
           {
             "at": 15,
-            "say": "Front leg actively straight. Lengthen the back toward the leg."
+            "say": "Front leg actively straight — quad on. Lengthen your back toward the leg."
+          },
+          {
+            "at": 30,
+            "say": "Halfway. Stomach toward the leg, head hangs."
           },
           {
             "at": 45,
-            "say": "Fifteen seconds."
+            "say": "Fifteen seconds. Arms relaxed."
           }
         ]
       },
@@ -506,11 +630,15 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right foot forward."
+            "say": "Switch. Right foot forward. Shift weight forward."
           },
           {
             "at": 15,
-            "say": "Head hangs. Arms relaxed."
+            "say": "Front leg actively straight. Quad on."
+          },
+          {
+            "at": 30,
+            "say": "Halfway. Lengthen, head heavy."
           },
           {
             "at": 45,
@@ -535,19 +663,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Set one. Left front. Start higher than usual."
+            "say": "Square splits set one. Left front. Start higher than usual — your hips have been opening."
           },
           {
-            "at": 5,
-            "say": "Pull the front hip back. Line up the hip bones."
+            "at": 10,
+            "say": "Pull the front hip back. Hip bones perfectly lined up."
           },
           {
-            "at": 15,
+            "at": 25,
             "say": "Slightly sit the weight onto the front leg."
           },
           {
-            "at": 35,
-            "say": "Don't worry about sinking. Just find square."
+            "at": 40,
+            "say": "Find square. Don't try to sink yet. Twenty seconds."
+          },
+          {
+            "at": 55,
+            "say": "Five seconds left."
           }
         ]
       },
@@ -557,15 +689,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Set one. Right front. Square the hips first."
+            "say": "Switch. Set one. Right front. Square the hips first."
           },
           {
-            "at": 15,
-            "say": "Hip bones perfectly lined up."
+            "at": 10,
+            "say": "Front hip back. Hip bones lined up."
           },
           {
-            "at": 35,
-            "say": "Find square. Don't sink."
+            "at": 25,
+            "say": "Sit weight onto the front leg."
+          },
+          {
+            "at": 40,
+            "say": "Find square. Don't sink. Twenty seconds."
+          },
+          {
+            "at": 55,
+            "say": "Five seconds left."
           }
         ]
       },
@@ -575,27 +715,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Set two. Left front. Stay square. Now try to sink."
+            "say": "Set two. Left front. Stay square, now try to sink."
           },
           {
-            "at": 10,
-            "say": "Deeper."
-          },
-          {
-            "at": 20,
-            "say": "Deeper."
+            "at": 15,
+            "say": "Sink a little. Square first, then sink."
           },
           {
             "at": 30,
-            "say": "Deeper."
+            "say": "Halfway. Deeper — but stay squared."
           },
           {
-            "at": 40,
-            "say": "Deeper."
-          },
-          {
-            "at": 50,
-            "say": "Deeper."
+            "at": 45,
+            "say": "Fifteen seconds. Don't let the hips open."
           }
         ]
       },
@@ -605,27 +737,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Set two. Right front. Stay square, then sink."
+            "say": "Set two. Right front. Square, then sink."
           },
           {
-            "at": 10,
-            "say": "Deeper."
-          },
-          {
-            "at": 20,
-            "say": "Deeper."
+            "at": 15,
+            "say": "Front hip back. Sink a little."
           },
           {
             "at": 30,
-            "say": "Deeper."
+            "say": "Halfway. Deeper while staying squared."
           },
           {
-            "at": 40,
-            "say": "Deeper."
-          },
-          {
-            "at": 50,
-            "say": "Deeper."
+            "at": 45,
+            "say": "Fifteen seconds."
           }
         ]
       },
@@ -638,12 +762,16 @@ export const exercises: Exercise[] = [
             "say": "Final set. Left front. Deepest square version."
           },
           {
-            "at": 20,
-            "say": "Sink a little more every ten seconds."
+            "at": 15,
+            "say": "Sink more — squared hips, every time."
+          },
+          {
+            "at": 30,
+            "say": "Halfway. Deeper."
           },
           {
             "at": 45,
-            "say": "Fifteen seconds."
+            "say": "Fifteen seconds left."
           }
         ]
       },
@@ -653,15 +781,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Final set. Right front."
+            "say": "Final set. Right front. Deepest version."
           },
           {
-            "at": 20,
-            "say": "Deeper."
+            "at": 15,
+            "say": "Sink, square, sink, square."
           },
           {
-            "at": 40,
-            "say": "Deeper."
+            "at": 30,
+            "say": "Halfway. Deeper."
+          },
+          {
+            "at": 45,
+            "say": "Fifteen seconds."
           }
         ]
       }
@@ -682,15 +814,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Sitz bones to the wall. Hands on the floor. Lower slowly."
+            "say": "Middle splits set one. Sitz bones to the wall, feet a few inches out. Hands on the floor. Lower slowly."
           },
           {
-            "at": 5,
-            "say": "Tuck and Twerk — super slow, five to ten times."
+            "at": 8,
+            "say": "Quads engaged. Side butt active. Strong, straight legs."
           },
           {
-            "at": 22,
-            "say": "Quads on. Side butt active."
+            "at": 16,
+            "say": "Tuck and Twerk — pelvis out, then tuck. Super slow, five to ten times."
+          },
+          {
+            "at": 28,
+            "say": "Hold. Five seconds left."
           }
         ]
       },
@@ -700,15 +836,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Set two. Lower again."
+            "say": "Set two. Lower again, deeper than set one."
           },
           {
-            "at": 5,
-            "say": "Tuck and Twerk."
+            "at": 8,
+            "say": "Quads on, side butt active."
           },
           {
-            "at": 22,
-            "say": "Hold."
+            "at": 16,
+            "say": "Tuck and Twerk again."
+          },
+          {
+            "at": 28,
+            "say": "Hold. Five seconds."
           }
         ]
       }
@@ -729,15 +869,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Left leg straight. Right leg bent, heel in line with the left knee. Hug the bent knee. Pelvis rotated, butt out. Fifteen reps."
+            "say": "Seated leg lifts. Left leg straight. Right leg bent, heel in line with the left knee. Hug the bent knee. Chest lifted, butt out. Fifteen reps."
           },
           {
-            "at": 20,
-            "say": "Don't round. Chest up."
+            "at": 15,
+            "say": "Five done. Don't slouch to lift higher."
+          },
+          {
+            "at": 25,
+            "say": "Halfway. Chest stays up. Reach toes forward and out."
           },
           {
             "at": 38,
-            "say": "Reach toes forward and out."
+            "say": "Three more. Slowly lower each rep."
+          },
+          {
+            "at": 46,
+            "say": "Last rep."
           }
         ]
       },
@@ -747,11 +895,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg straight."
+            "say": "Switch. Right leg straight. Hug the left knee. Fifteen reps."
+          },
+          {
+            "at": 15,
+            "say": "Five done. Chest lifted."
           },
           {
             "at": 25,
-            "say": "Chest stays lifted. Slowly lower each rep."
+            "say": "Halfway. Don't round back to lift."
+          },
+          {
+            "at": 38,
+            "say": "Three more. Reach the toes forward."
+          },
+          {
+            "at": 46,
+            "say": "Last rep."
           }
         ]
       }
@@ -772,19 +932,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Kneel on the right. Left leg straight back. Press the right knee down to lift the hips."
+            "say": "Lunge rotations. Kneel on the right. Left leg straight back. Hips square. Press the right knee down to lift the hips."
           },
           {
             "at": 12,
             "say": "Actively straighten the back leg — don't lean forward."
           },
           {
-            "at": 25,
-            "say": "Rotate so the back knee faces up. Both sitz bones to the floor."
+            "at": 22,
+            "say": "Rotate so the back knee faces up. Level the hips. Both sitz bones to the floor."
           },
           {
-            "at": 40,
-            "say": "Reverse. Press both legs into the floor to lift."
+            "at": 32,
+            "say": "Three done. Press both legs into the floor to lift and rotate back."
+          },
+          {
+            "at": 45,
+            "say": "Last few. Straight leg stays actively straight."
           }
         ]
       },
@@ -794,11 +958,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Kneel on the left. Right leg straight back."
+            "say": "Switch. Kneel on the left. Right leg straight back. Seven reps."
           },
           {
-            "at": 25,
+            "at": 18,
             "say": "Straight leg actively straight through the whole rotation."
+          },
+          {
+            "at": 32,
+            "say": "Three done. Make the legs do the work, not the arms."
+          },
+          {
+            "at": 48,
+            "say": "Last rep."
           }
         ]
       }
@@ -819,19 +991,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Table top. Bring the left leg up to the side. Mirror the bottom leg."
+            "say": "Kneeling tilt. Table top. Bring the left leg up to the side. Mirror the bottom leg."
           },
           {
-            "at": 8,
-            "say": "Top knee rotated back. Hips forward."
+            "at": 10,
+            "say": "Top knee rotated back. Hips facing forward. Pelvis rotates forward."
           },
           {
-            "at": 18,
-            "say": "Bottom foot in line with the knee — don't let it slide back."
+            "at": 20,
+            "say": "Bottom foot in line with the knee — don't let it slide back. Low abs, obliques, side butt."
           },
           {
-            "at": 28,
-            "say": "Hold."
+            "at": 30,
+            "say": "Five seconds left."
           }
         ]
       },
@@ -841,15 +1013,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right leg up."
+            "say": "Switch. Right leg up. Mirror the bottom leg."
           },
           {
             "at": 10,
-            "say": "Pelvis rotates to face forward."
+            "say": "Top knee rotates back. Hips forward."
           },
           {
-            "at": 28,
-            "say": "Hold."
+            "at": 20,
+            "say": "Bottom foot in line with the knee. Low abs, obliques, side butt."
+          },
+          {
+            "at": 30,
+            "say": "Five seconds."
           }
         ]
       }
@@ -870,19 +1046,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Stand on the right. Left knee to chest. Standing leg actively straight."
+            "say": "Gazelle. Stand on the right. Left knee to chest. Standing leg actively straight — quad fully engaged."
           },
           {
-            "at": 12,
+            "at": 15,
             "say": "Press through the heel. Drive the hips forward."
           },
           {
             "at": 30,
-            "say": "Pelvis tucked. Standing quad fully engaged."
+            "say": "Halfway. Pelvis tucked. Standing quad still on."
           },
           {
-            "at": 50,
-            "say": "Ten seconds."
+            "at": 45,
+            "say": "Fifteen seconds."
           }
         ]
       },
@@ -892,15 +1068,19 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Stand on the left. Right knee to chest."
+            "say": "Switch. Stand on the left. Right knee to chest. Quad on."
           },
           {
-            "at": 20,
-            "say": "Press the heel. Hips forward."
+            "at": 15,
+            "say": "Heel press. Hips forward."
           },
           {
-            "at": 50,
-            "say": "Ten seconds."
+            "at": 30,
+            "say": "Halfway. Pelvis tucked."
+          },
+          {
+            "at": 45,
+            "say": "Fifteen seconds."
           }
         ]
       }
@@ -921,19 +1101,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Front, left. Legs parallel, hips level, standing butt squeezed. Ten lifts."
+            "say": "Standing leg lifts front, left. Ten lifts first. Legs parallel, hips level, standing butt squeezed. Standing leg actively straight."
           },
           {
-            "at": 8,
-            "say": "Lean the chest back slightly, shift hips forward like Gazelle."
+            "at": 10,
+            "say": "Five lifts done. Lean the chest back slightly, shift hips forward like Gazelle."
           },
           {
-            "at": 22,
-            "say": "Hold up, ten seconds."
+            "at": 20,
+            "say": "Ten lifts done. Now hold up at the highest point — ten seconds."
           },
           {
-            "at": 32,
-            "say": "Ten pulses up."
+            "at": 30,
+            "say": "Now ten pulses up. Quick."
+          },
+          {
+            "at": 40,
+            "say": "Last three pulses."
           }
         ]
       },
@@ -943,15 +1127,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Front, right."
+            "say": "Switch. Front, right. Ten slow lifts."
           },
           {
-            "at": 22,
-            "say": "Hold."
+            "at": 10,
+            "say": "Five done. Standing leg actively straight."
           },
           {
-            "at": 32,
-            "say": "Pulse."
+            "at": 20,
+            "say": "Lifts done. Hold up ten seconds."
+          },
+          {
+            "at": 30,
+            "say": "Ten pulses up."
+          },
+          {
+            "at": 40,
+            "say": "Last few pulses."
           }
         ]
       },
@@ -961,19 +1153,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Side, left. Standing leg slightly turned out. Working knee straight up."
+            "say": "Side, left. Ten lifts. Standing leg slightly turned out. Working knee straight up, externally rotated."
           },
           {
-            "at": 12,
-            "say": "Don't twist the hips toward the lifting leg."
+            "at": 10,
+            "say": "Five done. Don't twist the hips toward the lifting leg — hip bones face forward."
           },
           {
-            "at": 22,
-            "say": "Hold."
+            "at": 20,
+            "say": "Lifts done. Hold up ten seconds. Glute of the bottom leg."
           },
           {
-            "at": 32,
-            "say": "Pulse."
+            "at": 30,
+            "say": "Ten pulses up."
+          },
+          {
+            "at": 40,
+            "say": "Last three pulses."
           }
         ]
       },
@@ -983,19 +1179,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Side, right."
+            "say": "Switch. Side, right. Ten lifts."
           },
           {
-            "at": 12,
-            "say": "Hip bones face forward. Glute of the bottom leg."
+            "at": 10,
+            "say": "Five done. Hip bones face forward. Glute of the bottom leg working."
           },
           {
-            "at": 22,
-            "say": "Hold."
+            "at": 20,
+            "say": "Lifts done. Hold up ten seconds."
           },
           {
-            "at": 32,
-            "say": "Pulse."
+            "at": 30,
+            "say": "Ten pulses."
+          },
+          {
+            "at": 40,
+            "say": "Last few."
           }
         ]
       },
@@ -1005,23 +1205,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Back, left. Leg directly behind the same-side hip. Knee straight."
+            "say": "Back, left. Ten lifts. Leg directly behind the same-side hip. Knee really straight — it likes to feel straight when it isn't."
           },
           {
-            "at": 8,
-            "say": "Hips squared. Don't open the hip to go higher."
+            "at": 10,
+            "say": "Five done. Hips squared — don't open the hip to go higher. Hamstring and low glute do the work."
           },
           {
-            "at": 14,
-            "say": "Shift weight to the heel. Chest leans forward slightly."
+            "at": 20,
+            "say": "Lifts done. Hold up ten seconds. Shift weight to the heel, chest leans forward."
           },
           {
-            "at": 22,
-            "say": "Hold."
+            "at": 30,
+            "say": "Ten pulses up."
           },
           {
-            "at": 32,
-            "say": "Pulse."
+            "at": 40,
+            "say": "Last three pulses."
           }
         ]
       },
@@ -1031,19 +1231,23 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Back, right. Square the hips."
+            "say": "Switch. Back, right. Ten lifts. Knee really straight — check it; it likes to feel straight when it isn't."
           },
           {
-            "at": 14,
-            "say": "Back knee straight — it likes to feel straight when it isn't. Really check it."
+            "at": 10,
+            "say": "Five done. Hips squared. Hamstring and underbutt lift, not the low back."
           },
           {
-            "at": 22,
-            "say": "Hold."
+            "at": 20,
+            "say": "Lifts done. Hold up ten seconds."
           },
           {
-            "at": 32,
-            "say": "Pulse."
+            "at": 30,
+            "say": "Ten pulses."
+          },
+          {
+            "at": 40,
+            "say": "Last few."
           }
         ]
       }
@@ -1064,10 +1268,10 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Left toes on the ground. Squeeze the bottom of your toes and the arch."
+            "say": "Toe point. Left toes on the ground. Squeeze the bottom of your toes and the arch."
           },
           {
-            "at": 8,
+            "at": 10,
             "say": "Move the hips forward and back — find the stretch in different places."
           },
           {
@@ -1076,7 +1280,7 @@ export const exercises: Exercise[] = [
           },
           {
             "at": 28,
-            "say": "Don't sickle — ankle stays in line."
+            "say": "Don't sickle — ankle stays in line. Five seconds left."
           }
         ]
       },
@@ -1086,7 +1290,11 @@ export const exercises: Exercise[] = [
         "cues": [
           {
             "at": 0,
-            "say": "Switch. Right toes down."
+            "say": "Switch. Right toes down. Squeeze the bottom of your toes and the arch."
+          },
+          {
+            "at": 10,
+            "say": "Move the hips forward and back."
           },
           {
             "at": 18,
@@ -1094,7 +1302,7 @@ export const exercises: Exercise[] = [
           },
           {
             "at": 28,
-            "say": "Don't sickle."
+            "say": "Don't sickle. Five seconds."
           }
         ]
       }
