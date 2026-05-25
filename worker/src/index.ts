@@ -5,6 +5,15 @@ export interface Env {
   TOKEN_SIGNING_KEY: string;
 }
 
+interface SessionNote {
+  exerciseId: number;
+  exerciseName: string;
+  phaseLabel: string;
+  /** Seconds into the session when the note started. */
+  atSec: number;
+  transcript: string;
+}
+
 interface SessionPayload {
   planId: string;
   startedAt: string;
@@ -13,6 +22,7 @@ interface SessionPayload {
   plannedSec: number;
   completedExerciseIds: number[];
   skippedExerciseIds: number[];
+  notes: SessionNote[];
 }
 
 const TOKEN_TTL_SEC = 30 * 24 * 60 * 60;
@@ -72,8 +82,8 @@ async function postSession(request: Request, env: Env) {
   const result = await env.DB.prepare(
     `INSERT INTO sessions
        (plan_id, started_at, finished_at, duration_sec, planned_sec,
-        completed_exercise_ids, skipped_exercise_ids, ip_hash, user_agent)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        completed_exercise_ids, skipped_exercise_ids, notes, ip_hash, user_agent)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
   )
     .bind(
       session.planId,
@@ -83,6 +93,7 @@ async function postSession(request: Request, env: Env) {
       session.plannedSec,
       JSON.stringify(session.completedExerciseIds),
       JSON.stringify(session.skippedExerciseIds),
+      JSON.stringify(session.notes),
       ipHash,
       request.headers.get("User-Agent") ?? null,
     )
@@ -96,7 +107,7 @@ async function getSessions(request: Request, env: Env) {
 
   const rows = await env.DB.prepare(
     `SELECT id, plan_id, started_at, finished_at, duration_sec, planned_sec,
-            completed_exercise_ids, skipped_exercise_ids, created_at
+            completed_exercise_ids, skipped_exercise_ids, notes, created_at
      FROM sessions
      ORDER BY finished_at DESC
      LIMIT 200`,
@@ -109,6 +120,7 @@ async function getSessions(request: Request, env: Env) {
     planned_sec: number;
     completed_exercise_ids: string;
     skipped_exercise_ids: string;
+    notes: string | null;
     created_at: string;
   }>();
 
@@ -122,6 +134,7 @@ async function getSessions(request: Request, env: Env) {
       plannedSec: r.planned_sec,
       completedExerciseIds: safeParseIds(r.completed_exercise_ids),
       skippedExerciseIds: safeParseIds(r.skipped_exercise_ids),
+      notes: safeParseNotes(r.notes),
       createdAt: r.created_at,
     })),
   };
@@ -189,10 +202,38 @@ function validateSession(body: Partial<SessionPayload>): SessionPayload {
     !body.skippedExerciseIds.every((n) => Number.isInteger(n))
   )
     errors.push("skippedExerciseIds");
+  const notes = body.notes ?? [];
+  if (!Array.isArray(notes) || !notes.every(isValidNote)) {
+    errors.push("notes");
+  }
   if (errors.length > 0) {
     throw new HttpError(400, `invalid:${errors.join(",")}`);
   }
-  return body as SessionPayload;
+  return { ...(body as SessionPayload), notes };
+}
+
+function isValidNote(n: unknown): n is SessionNote {
+  if (typeof n !== "object" || n === null) return false;
+  const o = n as Record<string, unknown>;
+  return (
+    Number.isInteger(o.exerciseId) &&
+    typeof o.exerciseName === "string" &&
+    typeof o.phaseLabel === "string" &&
+    typeof o.atSec === "number" &&
+    typeof o.transcript === "string" &&
+    (o.transcript as string).length > 0 &&
+    (o.transcript as string).length <= 4000
+  );
+}
+
+function safeParseNotes(json: string | null): SessionNote[] {
+  if (!json) return [];
+  try {
+    const v = JSON.parse(json);
+    return Array.isArray(v) ? (v.filter(isValidNote) as SessionNote[]) : [];
+  } catch {
+    return [];
+  }
 }
 
 function isIsoDate(s: string): boolean {

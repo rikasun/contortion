@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS sessions (
   planned_sec INTEGER NOT NULL,
   completed_exercise_ids TEXT NOT NULL,
   skipped_exercise_ids TEXT NOT NULL,
+  -- JSON array: [{ exerciseId, exerciseName, phaseLabel, atSec, transcript }]
+  notes TEXT NOT NULL DEFAULT '[]',
   ip_hash TEXT,
   user_agent TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))

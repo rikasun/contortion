@@ -14,6 +14,8 @@ import { CueDisplay } from "../components/CueDisplay";
 import { FocusCard } from "../components/FocusCard";
 import { Sidebar } from "../components/Sidebar";
 import { PhotoCard } from "../components/PhotoCard";
+import { RecordNote } from "../components/RecordNote";
+import type { SessionNote } from "../lib/api";
 
 const searchSchema = z.object({
   from: z.number().optional(),
@@ -47,8 +49,12 @@ function ClassScreen() {
   const [cueText, setCueText] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [hasBegun, setHasBegun] = useState(false);
+  const [notes, setNotes] = useState<SessionNote[]>([]);
 
   const cueTimerRef = useRef<number>(0);
+  // Whether the timer was running when the user pressed Record — so we
+  // resume only if we ourselves paused (and not if user was already paused).
+  const wasRunningBeforeRecordRef = useRef(false);
 
   const session = useSession({
     plan: plan!,
@@ -96,6 +102,7 @@ function ClassScreen() {
         plannedSec: result.plannedSec,
         completedExerciseIds: result.completedExerciseIds,
         skippedExerciseIds: result.skippedExerciseIds,
+        notes,
       };
       const eligible = isSessionRecordable(input, {
         totalExercises: plan!.exercises.length,
@@ -197,6 +204,7 @@ function ClassScreen() {
               onClick={() => {
                 // The Begin click IS the user gesture that unlocks audio + speech.
                 // The exercise intro spoken inside session.start() serves as the primer.
+                setNotes([]);
                 setHasBegun(true);
                 session.start();
               }}
@@ -313,6 +321,38 @@ function ClassScreen() {
               detail={step.ex.detail}
               focus={step.ex.focus}
             />
+          ) : null}
+
+          <RecordNote
+            onPressStart={() => {
+              wasRunningBeforeRecordRef.current = session.status === "running";
+              if (wasRunningBeforeRecordRef.current) session.pause();
+              // Cut TTS so it doesn't talk over the user.
+              cancel();
+            }}
+            onRelease={(transcript) => {
+              if (transcript && step) {
+                setNotes((prev) => [
+                  ...prev,
+                  {
+                    exerciseId: step.ex.id,
+                    exerciseName: step.ex.name,
+                    phaseLabel: step.phase.label,
+                    atSec: Math.round(session.sessionElapsedSec),
+                    transcript,
+                  },
+                ]);
+              }
+              if (wasRunningBeforeRecordRef.current) session.resume();
+            }}
+          />
+          {notes.length > 0 ? (
+            <div
+              className="mt-2 text-center"
+              style={{ color: "var(--ink-soft)", fontSize: 12 }}
+            >
+              {notes.length} note{notes.length === 1 ? "" : "s"} this session
+            </div>
           ) : null}
         </section>
 

@@ -5,6 +5,14 @@ const API_BASE: string =
 const TOKEN_KEY = "contortion:unlockToken";
 const TOKEN_EXP_KEY = "contortion:unlockTokenExp";
 
+export interface SessionNote {
+  exerciseId: number;
+  exerciseName: string;
+  phaseLabel: string;
+  atSec: number;
+  transcript: string;
+}
+
 export interface ApiSession {
   id: number;
   planId: string;
@@ -14,6 +22,7 @@ export interface ApiSession {
   plannedSec: number;
   completedExerciseIds: number[];
   skippedExerciseIds: number[];
+  notes: SessionNote[];
   createdAt: string;
 }
 
@@ -25,6 +34,7 @@ export interface SessionInput {
   plannedSec: number;
   completedExerciseIds: number[];
   skippedExerciseIds: number[];
+  notes: SessionNote[];
 }
 
 export class ApiError extends Error {

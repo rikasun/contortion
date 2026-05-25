@@ -177,17 +177,18 @@ function HistoryList({ onLocked }: { onLocked: () => void }) {
                 <th className="text-right py-2">Duration</th>
                 <th className="text-right py-2">Done</th>
                 <th className="text-right py-2">Skipped</th>
+                <th className="text-right py-2">Notes</th>
                 <th className="py-2" />
               </tr>
             </thead>
             <tbody>
-              {sessions.map((s) => {
+              {sessions.flatMap((s) => {
                 const plan = getPlan(s.planId);
                 const d = new Date(s.finishedAt);
-                return (
+                const rows = [(
                   <tr
                     key={s.id}
-                    style={{ borderBottom: "1px dashed var(--rule)" }}
+                    style={{ borderBottom: s.notes.length > 0 ? "none" : "1px dashed var(--rule)" }}
                   >
                     <td className="py-2">
                       {d.toLocaleDateString(undefined, {
@@ -217,6 +218,12 @@ function HistoryList({ onLocked }: { onLocked: () => void }) {
                     >
                       {s.skippedExerciseIds.length}
                     </td>
+                    <td
+                      className="py-2 text-right tabular-nums"
+                      style={{ color: s.notes.length > 0 ? "var(--accent)" : "var(--ink-faint)" }}
+                    >
+                      {s.notes.length}
+                    </td>
                     <td className="py-2 pl-2 text-right">
                       <Button
                         size="1"
@@ -233,7 +240,42 @@ function HistoryList({ onLocked }: { onLocked: () => void }) {
                       </Button>
                     </td>
                   </tr>
-                );
+                )];
+                if (s.notes.length > 0) {
+                  rows.push(
+                    <tr
+                      key={`${s.id}-notes`}
+                      style={{ borderBottom: "1px dashed var(--rule)" }}
+                    >
+                      <td colSpan={7} className="pb-3" style={{ paddingLeft: 4 }}>
+                        <ul className="m-0 pl-0" style={{ listStyle: "none" }}>
+                          {s.notes.map((n, i) => (
+                            <li
+                              key={i}
+                              className="text-[13px] py-1"
+                              style={{ color: "var(--ink-soft)" }}
+                            >
+                              <span
+                                style={{
+                                  color: "var(--accent)",
+                                  fontWeight: 600,
+                                  marginRight: 6,
+                                }}
+                              >
+                                {n.exerciseName}
+                              </span>
+                              <span style={{ color: "var(--ink-faint)" }}>
+                                {fmtSec(n.atSec)}
+                              </span>
+                              <span style={{ marginLeft: 8 }}>{n.transcript}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </td>
+                    </tr>,
+                  );
+                }
+                return rows;
               })}
             </tbody>
           </table>
