@@ -35,9 +35,21 @@ body.in-class {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  max-height: 100%;
 }
-@media (max-width: 979px) {
+@media (min-width: 768px) {
+  /* On desktop the main column can be taller than the viewport, which
+     would stretch the sidebar's grid cell taller than viewport too — and
+     since body has overflow:hidden in-class, you'd never see the bottom.
+     Pin sidebar to the top of its grid cell and cap height to viewport so
+     its internal plan list (overflow-y: auto) actually scrolls. */
+  .sb {
+    position: sticky;
+    top: 12px;
+    align-self: start;
+    max-height: calc(100vh - 24px);
+  }
+}
+@media (max-width: 767px) {
   .sb {
     position: fixed;
     inset: 0;
